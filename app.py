@@ -1,7 +1,7 @@
 """Run a small student-score demonstration using the helper module."""
 
 from students import STUDENTS
-from utils.helpers import get_highest_score, get_lowest_score
+from utils.helpers import get_highest_score, get_lowest_score, get_median_score
 
 
 def main() -> None:
@@ -14,13 +14,15 @@ def main() -> None:
         return
 
     for student in STUDENTS:
-        print(f"{student['name']}: {student['score']:.1f}")
+        print(f"{student.name}: {student.score:.1f}")
 
     highest = get_highest_score(STUDENTS)
     lowest = get_lowest_score(STUDENTS)
-    if highest is not None and lowest is not None:
-        print(f"\nHighest score: {highest['name']} ({highest['score']:.1f})")
-        print(f"Lowest score:  {lowest['name']} ({lowest['score']:.1f})")
+    median_score = get_median_score(STUDENTS)
+    if highest is not None and lowest is not None and median_score is not None:
+        print(f"\nHighest score: {highest.name} ({highest.score:.1f})")
+        print(f"Lowest score:  {lowest.name} ({lowest.score:.1f})")
+        print(f"Median score:  {median_score:.1f}")
 
 
 if __name__ == "__main__":

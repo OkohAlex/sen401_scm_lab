@@ -1,1 +1,1 @@
-# This Lab 1 starter project uses only the Python standard library.
+pydantic>=2.5,<3
