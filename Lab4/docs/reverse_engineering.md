@@ -20,6 +20,32 @@
 - `app/main.py` maps HTTP routes to controller operations.
 - `app/seed.py` migrates the Lab 3 JSON inventory into SQLite.
 
+```mermaid
+flowchart LR
+    Client[HTTP client]
+    Routes[app/main.py<br/>FastAPI routes]
+    Models[app/models.py<br/>Pydantic schemas]
+    Controllers[app/controllers.py<br/>Inventory operations]
+    Database[app/database.py<br/>SQLite connection]
+    SQLite[(inventory.db)]
+    Seed[app/seed.py<br/>JSON migration]
+    JSON[data/legacy_inventory.json]
+    Init[db-init container]
+    Api[api container]
+
+    Client --> Routes
+    Routes --> Models
+    Routes --> Controllers
+    Controllers --> Models
+    Controllers --> Database
+    Database --> SQLite
+    Init --> Seed
+    Seed --> JSON
+    Seed --> Database
+    Api --> Routes
+    Api --> SQLite
+```
+
 ## Coupling and code-smell observations
 
 The original inventory demo depended directly on a Python list, which couples
