@@ -1,0 +1,23 @@
+flowchart LR
+    Client[HTTP client]
+    Routes[app/main.py<br/>FastAPI routes]
+    Models[app/models.py<br/>Pydantic schemas]
+    Controllers[app/controllers.py<br/>Inventory operations]
+    Database[app/database.py<br/>SQLite connection]
+    SQLite[(inventory.db)]
+    Seed[app/seed.py<br/>JSON migration]
+    JSON[data/legacy_inventory.json]
+    Init[db-init container]
+    Api[api container]
+
+    Client --> Routes
+    Routes --> Models
+    Routes --> Controllers
+    Controllers --> Models
+    Controllers --> Database
+    Database --> SQLite
+    Init --> Seed
+    Seed --> JSON
+    Seed --> Database
+    Api --> Routes
+    Api --> SQLite

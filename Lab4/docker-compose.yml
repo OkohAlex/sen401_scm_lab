@@ -1,0 +1,28 @@
+services:
+  db-init:
+    build:
+      context: .
+      dockerfile: Dockerfile.db-init
+    environment:
+      DATABASE_PATH: /data/inventory.db
+    volumes:
+      - inventory_data:/data
+    restart: "no"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    depends_on:
+      db-init:
+        condition: service_completed_successfully
+    environment:
+      DATABASE_PATH: /data/inventory.db
+    ports:
+      - "8000:8000"
+    volumes:
+      - inventory_data:/data
+    restart: unless-stopped
+
+volumes:
+  inventory_data:
