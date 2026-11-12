@@ -34,6 +34,7 @@ a different file.
 Docker Desktop is required. From this directory, build and start both services:
 
 ```powershell
+cd "C:\Users\aokoh\Documents\MIVA\400L\1ST SEMESTER\SEN 401 - Software Configuration Management and Maintenance\SEN 401 Lab - Alex\individual_sen401_scm_lab\Labs\Lab4"
 docker compose up --build
 ```
 
@@ -42,6 +43,21 @@ volume before the API container starts. The API and initializer use separate
 Dockerfiles and share the persistent database volume. Stop the services with
 `Ctrl+C`, then run `docker compose down` to remove containers while retaining
 the volume.
+
+`db-init` exits after doing its one-time work; an exit code of `0` is
+successful. If the persistent database already contains the sample records,
+the initializer may report `Imported 0 inventory records` because it avoids
+duplicates. The `api` container should stay running on port `8000`. Check the
+containers from another PowerShell window opened in this folder:
+
+```powershell
+docker compose ps
+```
+
+Verify the service in a browser at `http://localhost:8000/docs`,
+`http://localhost:8000/health`, and
+`http://localhost:8000/api/v1/inventory`. Capture your own terminal and browser
+screenshots for the assessment report.
 
 ## Reverse-engineering evidence
 
