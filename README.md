@@ -5,6 +5,11 @@
 **Matric number:** 2023/C/SENG/0389  
 **Repository:** [OkohAlex/sen401_scm_lab](https://github.com/OkohAlex/sen401_scm_lab)
 
+The current report draft is available as [Markdown](REPORT.md) and as an
+[editable Word document with screenshot placeholders](SEN401_Individual_Lab_Report_DRAFT_with_placeholders.docx).
+Replace the placeholders with original screenshots before exporting the final
+single PDF for submission.
+
 This repository organizes the practical assessment into one folder per lab.
 Each lab has its own instructions, source files, dependencies, and tests where
 applicable. Screenshots and final report evidence should be captured from this
