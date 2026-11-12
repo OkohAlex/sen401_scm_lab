@@ -1,0 +1,7 @@
+ci_id,change_request,maintenance_type,commit,branch,author,date
+CI-L3-BASE-01,Create the inventory project baseline,Baseline,9c705349bebf4ccc7cb3a7942e435fb9d7f71fab,main,OkohAlex,2026-11-11
+CI-L3-CORR-01,Reject invalid stock values and guard empty inventory,Corrective,838c4607808320f545535ce302415eee3ae2d141,dev,OkohAlex,2026-11-11
+CI-L3-ADAPT-01,Use standard-library dataclasses and type annotations,Adaptive,838c4607808320f545535ce302415eee3ae2d141,dev,OkohAlex,2026-11-11
+CI-L3-PERF-01,Add total stock valuation and quantity ranking,Perfective,838c4607808320f545535ce302415eee3ae2d141,dev,OkohAlex,2026-11-11
+CI-L3-PREV-01,Separate model and helper modules and add regression tests,Preventive,838c4607808320f545535ce302415eee3ae2d141,dev,OkohAlex,2026-11-11
+CI-L3-REL-01,Release completed Lab 3 maintenance as v1.0,Release,838c4607808320f545535ce302415eee3ae2d141,dev,OkohAlex,2026-11-11
